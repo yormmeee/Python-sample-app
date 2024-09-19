@@ -1,11 +1,11 @@
 # Python Sample App
 
-Welcome to the Python Sample App repository! This project demonstrates how to create a simple Python web server using the `HTTPServer` library and how to containerize it using Docker. 
+Welcome to the Python Sample App repository! This project demonstrates how to create a simple Python web server using the `HTTPServer` library and how to containerize it using Docker.
 
 ## Overview
 
 - **Web Server**: Implements a basic HTTP server that responds with details about the client and server.
-- **Containerization**: Dockerfile provided to build a secure Docker image.
+- **Containerization**: Includes a Dockerfile to build a secure Docker image.
 - **Security**: Follows best practices for container security.
 
 ## Features
@@ -26,33 +26,61 @@ Welcome to the Python Sample App repository! This project demonstrates how to cr
 ### Running the Web Server Locally
 
 1. **Clone the Repository**
-   git clone https://github.com/yormmeee/Python-sample-app.git
-   cd Python-sample-app
-###Install Dependencies
 
-Ensure you have Python 3.10 installed. No additional dependencies are required for this basic server.
+    ```bash
+    git clone https://github.com/yormmeee/Python-sample-app.git
+    cd Python-sample-app
+    ```
 
-Run the Server
+2. **Install Dependencies**
 
-- python3 web_server.py
-- Test the Server
+    Ensure you have Python 3.10 installed. No additional dependencies are required for this basic server.
 
-Open a browser or use curl to check the server’s response:
+3. **Run the Server**
 
-- curl localhost:8000
-You should see a response with details about the client and server.
+    ```bash
+    python3 web_server.py
+    ```
 
-###Containerizing the Web Server
-Build the Docker Image
+4. **Test the Server**
 
+    Open a browser or use `curl` to check the server’s response:
 
-- docker build -t secure-python-server .
-Run the Docker Container
+    ```bash
+    curl localhost:8000
+    ```
 
+    You should see a response with details about the client and server.
 
-- docker run -d -p 8000:8000 secure-python-server
-###Test the Container
+### Containerizing the Web Server
 
-After running the container, verify it by accessing:
+1. **Build the Docker Image**
 
-- curl localhost:8000
+    ```bash
+    docker build -t secure-python-server .
+    ```
+
+2. **Run the Docker Container**
+
+    ```bash
+    docker run -d -p 8000:8000 secure-python-server
+    ```
+
+3. **Test the Container**
+
+    After running the container, verify it by accessing:
+
+    ```bash
+    curl localhost:8000
+    ```
+
+    You should receive a similar response as when running the server locally.
+
+## Security
+
+- **Vulnerability Scanning**: Use Trivy to scan the Docker image for vulnerabilities. Instructions for using Trivy can be found in the [Trivy documentation](https://aquasecurity.github.io/trivy/latest/docs/).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
