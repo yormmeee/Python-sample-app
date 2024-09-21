@@ -31,7 +31,7 @@ Before running the project, ensure you have the following installed:
 - **Kubectl**: For interacting with Kubernetes clusters.
 - **Terraform**: For AWS infrastructure automation.
 - **Trivy**: For scanning Docker images for vulnerabilities.
-- **A Kubernetes Cluster**: (e.g., EKS, Minikube) for deploying the Helm chart and managing RBAC.
+- **A Kubernetes Cluster**: EKS for deploying the Helm chart and managing RBAC.
 
 ## Getting Started
 
@@ -143,7 +143,27 @@ Deploy the application using Helm:
 helm install web-server ./helm
  ```
 ## Exercise 4: Build and Deploy the Application in a CI/CD System
-- This project includes a GitHub Actions workflow for continuous integration and deployment. Make sure to push your changes to the repository to trigger the CI/CD pipeline.
+This section outlines how to set up a CI/CD pipeline to automate the build and deployment of the Python web server application using GitHub Actions.
+
+## Prerequisites
+
+Before setting up the CI/CD pipeline, ensure you have the following:
+
+- A GitHub repository containing the Python web server application.
+- An AWS account with permissions to access Elastic Container Registry (ECR) and Elastic Kubernetes Service (EKS).
+
+## Required Environment Variables
+
+The following environment variables must be set in your GitHub repository's Secrets for the CI/CD pipeline to work:
+
+- **`AWS_ACCESS_KEY_ID`**: Your AWS Access Key ID.
+- **`AWS_SECRET_ACCESS_KEY`**: Your AWS Secret Access Key.
+- **`AWS_ACCOUNT_ID`**: Your AWS Account ID (without dashes).
+- **`AWS_REGION`**: The AWS region where your ECR and EKS are located (e.g., `us-east-1`).
+- **`CLUSTER_NAME`**: The name of your EKS cluster.
+- **`ECR_REPOSITORY`**: The name of your ECR repository where the Docker image will be pushed.
+
+   ```
 ## Exercise 5: Implementing RBAC in Kubernetes
 - Set up RBAC policies in a Kubernetes cluster to manage user permissions effectively.
 - Grant specific access to developers and monitoring teams.
