@@ -1,7 +1,14 @@
 # Assessment Project
 
 Welcome to the Assessment Project repository! This project demonstrates various skills in developing a web server, securing container images, creating Helm charts, integrating CI/CD systems, implementing Kubernetes RBAC, and automating AWS security with Terraform.
+## Overview
 
+- **Web Server**: A basic HTTP server that responds with client and server information.
+- **Containerization**: Dockerfile to build a secure Docker image.
+- **Deployment**: Instructions for running the server locally or in a container.
+- **CI/CD**: Automated integration and deployment using GitHub Actions.
+- **Kubernetes RBAC**: Role-based access control for managing access to resources.
+- **AWS Automation**: Terraform scripts to manage S3 bucket security.
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
@@ -16,7 +23,7 @@ Welcome to the Assessment Project repository! This project demonstrates various 
 
 ## Prerequisites
 
-Make sure you have the following installed:
+Before running the project, ensure you have the following installed:
 
 - **Python 3.10**: For the web server development.
 - **Docker**: For containerizing the application.
@@ -27,6 +34,16 @@ Make sure you have the following installed:
 - **Trivy**: For scanning Docker images for vulnerabilities.
 - **A Kubernetes Cluster**: (e.g., EKS, Minikube) for deploying the Helm chart and managing RBAC.
 
+## Getting Started
+
+### 1. Clone the Repository
+
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/yourusername/Python-Web-Server.git
+cd Python-Web-Server
+
 ## Exercise 1: Developing a Simple Web Server
 
 ### Overview
@@ -34,26 +51,17 @@ Make sure you have the following installed:
 This exercise demonstrates how to create a simple web server using the `HTTPServer` library in Python. The server listens on port 8000 and responds with client and server details for each request.
 
 
-### Running the Web Server Locally
-
-1. **Clone the Repository**
-
-    ```bash
-    git clone https://github.com/yormmeee/Python-sample-app.git
-    cd Python-sample-app
-    ```
-
-2. **Install Dependencies**
+1. **Install Dependencies**
 
     Ensure you have Python 3.10 installed. No additional dependencies are required for this basic server.
 
-3. **Run the Server**
+2. **Run the Server**
 
     ```bash
     python3 web_server.py
     ```
 
-4. **Test the Server**
+3. **Test the Server**
 
     Open a browser or use `curl` to check the server’s response:
 
@@ -125,6 +133,53 @@ Address any vulnerabilities reported by following the recommendations provided b
 The chosen base image python:3.10-slim is minimal, reducing the attack surface while still including necessary Python libraries. It follows best practices for security and performance.
 
 - **Vulnerability Scanning**: Use Trivy to scan the Docker image for vulnerabilities. Instructions for using Trivy can be found in the [Trivy documentation](https://aquasecurity.github.io/trivy/latest/docs/).
+
+## Exercise 3: Deploying with Helm
+Deploy the Helm Chart:
+
+### Deploy the Application
+Deploy the application using Helm:
+
+ ```bash
+helm install web-server ./helm
+ ```
+## Exercise 4: CI/CD with GitHub Actions
+- This project includes a GitHub Actions workflow for continuous integration and deployment. Make sure to push your changes to the repository to trigger the CI/CD pipeline.
+## Exercise 5: Implementing RBAC in Kubernetes
+- Set up RBAC policies in a Kubernetes cluster to manage user permissions effectively.
+- Grant specific access to developers and monitoring teams.
+### Apply the Developer Role:
+
+This role allows developers to manage deployments in a specific namespace.
+
+ ```bash
+kubectl apply -f roles/developer-role.yaml
+ ```
+### Apply the Monitor Cluster Role:
+
+This role grants read-only access to all resources in the cluster.
+
+ ```bash
+kubectl apply -f roles/monitor-cluster-role.yaml
+ ```
+### Create Role Bindings:
+
+Bind the developer role to the specified user.
+```bash
+kubectl apply -f bindings/developer-role-binding.yaml
+```
+Bind the monitor role to the specified user.
+
+```bash
+kubectl apply -f bindings/monitor-cluster-role-binding.yaml
+```
+## Exercise 6: AWS Automation with Terraform
+- To set up S3 bucket security, navigate to the exercise folder and run:
+ ```bash
+cd terraform
+terraform init
+terraform apply
+ ```
 
 
 
