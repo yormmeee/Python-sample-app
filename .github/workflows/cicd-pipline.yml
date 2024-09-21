@@ -77,4 +77,5 @@ jobs:
 
       - name: Wait for deployment
         run: |
+          kubectl rollout restart deployment web-server --namespace default
           kubectl rollout status deployment/web-server --namespace default
