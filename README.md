@@ -18,8 +18,7 @@ Welcome to the Assessment Project repository! This project demonstrates various 
 5. [Exercise 4: Build and Deploy the Application in a CI/CD System](#exercise-4-build-and-deploy-the-application-in-a-cicd-system)
 6. [Exercise 5: Implementing RBAC in Kubernetes](#exercise-5-implementing-rbac-in-kubernetes)
 7. [Exercise 6: AWS Automation with Terraform](#exercise-6-aws-automation-with-terraform)
-8. [Submission Instructions](#submission-instructions)
-9. [Conclusion](#conclusion)
+
 
 ## Prerequisites
 
