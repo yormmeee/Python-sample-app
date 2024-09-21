@@ -69,13 +69,13 @@ jobs:
         run: |
           if helm ls --namespace default | grep web-server; then
             echo "Upgrading web-server..."
-            helm upgrade web-server ./helm --namespace default --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest
+            helm upgrade web-server ./helm --namespace web-server --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest
           else
             echo "Installing web-server..."
-            helm install web-server ./helm --namespace default --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest
+            helm install web-server ./helm --namespace web-server --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest
           fi
 
       - name: Wait for deployment
         run: |
-          kubectl rollout restart deployment web-server --namespace default
-          kubectl rollout status deployment/web-server --namespace default
+          kubectl rollout restart deployment web-server --namespace web-server
+          kubectl rollout status deployment/web-server --namespace web-server
