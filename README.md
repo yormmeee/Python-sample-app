@@ -61,7 +61,7 @@ This exercise demonstrates how to create a simple web server using the `HTTPServ
     curl localhost:8000
     ```
 
-    You should see a response with details about the client and server.
+    You should see a response.
 
 ### Containerizing the Web Server
 
