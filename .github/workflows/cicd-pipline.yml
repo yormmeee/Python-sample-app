@@ -63,6 +63,7 @@ jobs:
       - name: Check if Helm release exists
         id: check_helm
         run: |
+          kubectl create namespace webserver
           helm ls --namespace web-server | grep web-server || echo "Release not found"
 
       - name: Deploy Helm Chart
