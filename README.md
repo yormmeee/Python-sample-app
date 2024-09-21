@@ -14,7 +14,7 @@ Welcome to the Assessment Project repository! This project demonstrates various 
 1. [Prerequisites](#prerequisites)
 2. [Exercise 1: Developing a Simple Web Server](#exercise-1-developing-a-simple-web-server)
 3. [Exercise 2: Securing Container Images](#exercise-2-securing-container-images)
-4. [Exercise 3: Creating a Secure Helm Chart](#exercise-3-creating-a-secure-helm-chart)
+4. [Exercise 3: Deploying with Helm](#exercise-3-deploying-with-helm)
 5. [Exercise 4: Build and Deploy the Application in a CI/CD System](#exercise-4-build-and-deploy-the-application-in-a-cicd-system)
 6. [Exercise 5: Implementing Role-Based Access Control (RBAC)](#exercise-5-implementing-role-based-access-control-rbac)
 7. [Exercise 6: AWS Automation with Terraform](#exercise-6-aws-automation-with-terraform)
