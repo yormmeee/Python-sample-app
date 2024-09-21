@@ -163,7 +163,6 @@ The following environment variables must be set in your GitHub repository's Secr
 - **`CLUSTER_NAME`**: The name of your EKS cluster.
 - **`ECR_REPOSITORY`**: The name of your ECR repository where the Docker image will be pushed.
 
-   ```
 ## Exercise 5: Implementing RBAC in Kubernetes
 - Set up RBAC policies in a Kubernetes cluster to manage user permissions effectively.
 - Grant specific access to developers and monitoring teams.
