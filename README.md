@@ -148,21 +148,25 @@ helm install web-server ./helm
 ## Exercise 5: Implementing RBAC in Kubernetes
 - Set up RBAC policies in a Kubernetes cluster to manage user permissions effectively.
 - Grant specific access to developers and monitoring teams.
-### Apply the Developer Role:
+ #### 1. Navigate to the Kubernetes directory:
+```bash
+cd k8s
+```
+ #### 2. Apply the Developer Role:
 
 This role allows developers to manage deployments in a specific namespace.
 
  ```bash
 kubectl apply -f roles/developer-role.yaml
  ```
-### Apply the Monitor Cluster Role:
+ #### 3. Apply the Monitor Cluster Role:
 
 This role grants read-only access to all resources in the cluster.
 
  ```bash
 kubectl apply -f roles/monitor-cluster-role.yaml
  ```
-### Create Role Bindings:
+ #### 4. Create Role Bindings:
 
 Bind the developer role to the specified user.
 ```bash
