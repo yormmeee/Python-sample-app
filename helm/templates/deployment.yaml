@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}
-  namespace: webserver   
+  namespace: web-server   
   labels:
     app: {{ .Release.Name }}
 spec:
