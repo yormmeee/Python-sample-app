@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: developer-role-binding
+  namespace: web-server  # Use the web-server namespace
+spec:
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: developer-role
+  subjects:
+    - kind: User  # Change this to 'ServiceAccount' if using service accounts
+      name: developer-user  # Replace with the actual user or service account name
+      apiGroup: rbac.authorization.k8s.io
+
