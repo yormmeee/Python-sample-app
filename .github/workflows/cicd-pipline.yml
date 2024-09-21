@@ -73,4 +73,5 @@ jobs:
           helm upgrade --install web-server ./helm \
             --set image.repository=${{ secrets.ECR_REPOSITORY }} \
             --set image.tag=latest \
-            --namespace default
+            --namespace default \
+            --reuse-values 
