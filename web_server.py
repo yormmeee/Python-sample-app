@@ -8,7 +8,7 @@ class SimpleWebServer(BaseHTTPRequestHandler):
         self.end_headers()
         
         # Response content: "Hello, World"
-        response = "Hello, World TEST"
+        response = "Hello, World "
         self.wfile.write(response.encode('utf-8'))
 
 if __name__ == "__main__":
