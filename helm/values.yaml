@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: 992382565088.dkr.ecr.us-east-1.amazonaws.com/web-server  # ECR image repository
+  tag: latest                                                                   # Image tag
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer                                                           # Change to LoadBalancer
+  port: 8000                                                                    # Service port
+
+resources: {}
+
