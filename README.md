@@ -16,7 +16,7 @@ Welcome to the Assessment Project repository! This project demonstrates various 
 3. [Exercise 2: Securing Container Images](#exercise-2-securing-container-images)
 4. [Exercise 3: Deploying with Helm](#exercise-3-deploying-with-helm)
 5. [Exercise 4: Build and Deploy the Application in a CI/CD System](#exercise-4-build-and-deploy-the-application-in-a-cicd-system)
-6. [Exercise 5: Implementing Role-Based Access Control (RBAC)](#exercise-5-implementing-role-based-access-control-rbac)
+6. [Exercise 5: Implementing RBAC in Kubernetes](#exercise-5-implementing-rbac-in-kubernetes)
 7. [Exercise 6: AWS Automation with Terraform](#exercise-6-aws-automation-with-terraform)
 8. [Submission Instructions](#submission-instructions)
 9. [Conclusion](#conclusion)
@@ -143,7 +143,7 @@ Deploy the application using Helm:
  ```bash
 helm install web-server ./helm
  ```
-## Exercise 4: CI/CD with GitHub Actions
+## Exercise 4: Build and Deploy the Application in a CI/CD System
 - This project includes a GitHub Actions workflow for continuous integration and deployment. Make sure to push your changes to the repository to trigger the CI/CD pipeline.
 ## Exercise 5: Implementing RBAC in Kubernetes
 - Set up RBAC policies in a Kubernetes cluster to manage user permissions effectively.
