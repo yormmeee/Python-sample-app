@@ -60,19 +60,20 @@ jobs:
         run: |
           aws eks update-kubeconfig --name ${{ secrets.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
+      - name: Check if Helm release exists
+        id: check_helm
+        run: |
+          helm ls --namespace default | grep web-server || echo "Release not found"
+
       - name: Deploy Helm Chart
-        uses: bitovi/github-actions-deploy-eks-helm@v1.2.10
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-          cluster-name: ${{ secrets.CLUSTER_NAME }}
-          chart-path: ./helm
-          namespace: default
-          name: web-server
-          values: image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest
-          action: upgrade
-          create-namespace: true
+        run: |
+          if helm ls --namespace default | grep web-server; then
+            echo "Upgrading web-server..."
+            helm upgrade web-server ./helm --namespace default --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest
+          else
+            echo "Installing web-server..."
+            helm install web-server ./helm --namespace default --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest
+          fi
 
       - name: Wait for deployment
         run: |
