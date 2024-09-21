@@ -77,4 +77,4 @@ jobs:
           chart-path: ./helm  # Update this to your Helm chart directory
           namespace: default  # Set your desired namespace
           name: web-server  # Release name
-          values: image.repository=${{ secrets.ECR_REPOSITORY }},image.tag=latest  # Override values
+          values: image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest  # Override values
