@@ -64,7 +64,7 @@ jobs:
       # Step 3: Update kubeconfig for EKS to manage the Kubernetes cluster
       - name: Update kubeconfig for EKS
         run: |
-          aws eks update-kubeconfig --name ${{ secrets.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+          aws eks update-kubeconfig --name ${{ secrets.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }} 
 
       # Step 4: Deploy Helm chart
       - name: Deploy Helm Chart
@@ -74,7 +74,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
           cluster-name: ${{ secrets.CLUSTER_NAME }}
-          chart-path: ./helm  # Update this to your Helm chart directory
-          namespace: default  # Set your desired namespace
-          name: web-server  # Release name
+          chart-path: ./helm  
+          namespace: default 
+          name: web-server 
           values: image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest  # Override values
