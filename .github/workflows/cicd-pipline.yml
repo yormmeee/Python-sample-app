@@ -60,15 +60,7 @@ jobs:
         run: |
           aws eks update-kubeconfig --name ${{ secrets.CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
-      - name: Create namespace if it does not exist
-        run: |
-          if ! kubectl get namespace web-server; then
-            kubectl create namespace web-server
-          fi
 
-      - name: Uninstall previous Helm release (if exists)
-        run: |
-          helm uninstall web-server --namespace web-server || echo "No previous release to uninstall"
 
       - name: Deploy Helm Chart
         run: |
