@@ -63,11 +63,11 @@ jobs:
       - name: Check if Helm release exists
         id: check_helm
         run: |
-          helm ls --namespace default | grep web-server || echo "Release not found"
+          helm ls --namespace web-server | grep web-server || echo "Release not found"
 
       - name: Deploy Helm Chart
         run: |
-          if helm ls --namespace default | grep web-server; then
+          if helm ls --namespace web-server | grep web-server; then
             echo "Upgrading web-server..."
             helm upgrade web-server ./helm --namespace web-server --set image.repository=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.ECR_REPOSITORY }},image.tag=latest
           else
