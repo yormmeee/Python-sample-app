@@ -27,7 +27,7 @@ jobs:
       # Run Tests (using unittest or pytest)
       - name: Run Tests
         run: |
-          python3 -m unittest discover -s . -p "*_test.py"
+          python3 -m unittest discover -s . -p "test_*.py"
 
       # Continue with Docker build and push to AWS ECR
       - name: Set up Docker
