@@ -1,5 +1,5 @@
 # Use a minimal, secure base image
-FROM python:3.10-slim
+FROM python:3.12-slim
 
 # Set environment variable to ensure Python doesn't buffer outputs
 ENV PYTHONUNBUFFERED=1
