@@ -1,29 +1,27 @@
 # test_server.py
 import unittest
-from http.server import HTTPServer
 import requests
-import threading
+from threading import Thread
 from server import SimpleWebServer
+from http.server import HTTPServer
 
 class TestWebServer(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        # Set up a background server thread for testing
-        cls.server_address = ('0.0.0.0', 8000)
-        cls.httpd = HTTPServer(cls.server_address, SimpleWebServer)
-        cls.server_thread = threading.Thread(target=cls.httpd.serve_forever)
+        # Start the server in a background thread
+        server_address = ('', 8000)
+        cls.httpd = HTTPServer(server_address, SimpleWebServer)
+        cls.server_thread = Thread(target=cls.httpd.serve_forever)
         cls.server_thread.daemon = True
         cls.server_thread.start()
 
     @classmethod
     def tearDownClass(cls):
-        # Stop the server after tests
+        # Shut down the server
         cls.httpd.shutdown()
-        cls.server_thread.join()
 
-    def test_hello_world(self):
-        # Send a GET request to the server and test the response
-        response = requests.get(f'http://{self.server_address[0]}:{self.server_address[1]}')
+    def test_get_request(self):
+        response = requests.get('http://localhost:8000')
         self.assertEqual(response.status_code, 200)
         self.assertIn('Hello, World', response.text)
 
