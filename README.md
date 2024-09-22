@@ -89,7 +89,7 @@ This exercise demonstrates how to create a simple web server using the `HTTPServ
     After running the container, verify it by accessing:
 
     ```bash
-    curl localhost:8000
+    curl http://localhost:8000
     ```
 
     You should receive a similar response as when running the server locally.
@@ -117,7 +117,7 @@ docker run -d -p 8000:8000 secure-python-server
  ```
 Test the Container After running the container, verify it by accessing:
  ```bash
-curl localhost:8000
+curl http://localhost:8000
  ```
 You should receive a similar response as when running the server locally.
 
