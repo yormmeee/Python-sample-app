@@ -1,9 +1,8 @@
-# test_server.py
 import unittest
 import requests
 from threading import Thread
-from server import SimpleWebServer
 from http.server import HTTPServer
+from web_server import SimpleWebServer  # Updated import
 
 class TestWebServer(unittest.TestCase):
     @classmethod
