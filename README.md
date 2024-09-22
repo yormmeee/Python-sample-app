@@ -31,7 +31,7 @@ Before running the project, ensure you have the following installed:
 - **Kubectl**: For interacting with Kubernetes clusters.
 - **Terraform**: For AWS infrastructure automation.
 - **Trivy**: For scanning Docker images for vulnerabilities.
-- **A Kubernetes Cluster**: EKS for deploying the Helm chart and managing RBAC.
+- **A Kubernetes Cluster & AWS cli**: EKS for deploying the Helm chart and managing RBAC.
 
 ## Getting Started
 
