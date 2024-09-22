@@ -24,7 +24,7 @@ Welcome to the Assessment Project repository! This project demonstrates various 
 
 Before running the project, ensure you have the following installed:
 
-- **Python 3.10**: For the web server development.
+- **Python 3.12**: For the web server development.
 - **Docker**: For containerizing the application.
 - **Helm**: For managing Kubernetes applications.
 - **Git**: For version control and cloning the repository.
@@ -129,7 +129,7 @@ trivy image secure-python-server
 Address any vulnerabilities reported by following the recommendations provided by Trivy.
 
 ### Base Image Explanation
-The chosen base image python:3.10-slim is minimal, reducing the attack surface while still including necessary Python libraries. It follows best practices for security and performance.
+The chosen base image python:3.12-slim is minimal, reducing the attack surface while still including necessary Python libraries. It follows best practices for security and performance.
 
 - **Vulnerability Scanning**: Use Trivy to scan the Docker image for vulnerabilities. Instructions for using Trivy can be found in the [Trivy documentation](https://aquasecurity.github.io/trivy/latest/docs/).
 
